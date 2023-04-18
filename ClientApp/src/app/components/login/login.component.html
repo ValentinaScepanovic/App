@@ -1,0 +1,87 @@
+<div class="loader" *ngIf="loading"></div>
+<div class="back-img" *ngIf="!loading">
+  <div class="loginPosition">
+  <div class="loginStyle">
+    <p class="text"> Need login first! </p>
+    <button type="button" (click)="logIn()" class="button">Login</button>
+    <br>
+    <p class="text">If you don't have account sign in first!</p>
+    <button type="button" (click)="signIn()" class="button">Sign in</button>
+ </div>
+</div>
+</div>
+
+<form #log="ngForm" class="form" *ngIf="logVisible">
+    <div class="form-content">
+      <div class="form-header">
+        <h1>Login</h1>
+        <button class="close" (click)="logIn()">&times;</button>
+      </div>
+      <div class="form-body">
+        <div>
+          <label for="userName">Username*</label>
+          <br>
+          <input type="text" class="input" name="userName" [(ngModel)]="loginFormData.userName" 
+          required placeholder="Enter your name">
+        </div>
+        <br>
+        <div>
+          <label for="password">Password*</label>
+          <br>
+          <input type="password" class="input" name="password" [(ngModel)]="loginFormData.password" 
+          required placeholder="Enter your password">
+        </div>
+      </div>
+      <br>
+
+      <div class="form-footer">
+        <button type="button" (click)="onSubmitLogin()" class="button" [disabled]="!log.valid">Login </button>
+        <button type="button" (click)="logIn()" class="button">Close</button>
+    </div>
+    </div>
+</form>
+
+<form #sign="ngForm" class="form" *ngIf="signVisible">
+    <div class="form-content">
+      <div class="form-header">
+        <h1>Sign in</h1>
+        <button class="close" (click)="signIn()">&times;</button>
+      </div>
+      <div class="form-body">
+        <div>
+        <label for="name">Name*</label>
+        <br>
+        <input type="text" class="input" name="name" [(ngModel)]="signinFormData.name" 
+        required placeholder="Enter your name">
+        </div>
+        <br>
+        <div>
+        <label for="email">Email*</label>
+        <br>
+        <input type="email" class="input" name="email" [(ngModel)]="signinFormData.email" 
+        required placeholder="Enter your email">
+        </div>
+        <br>
+        <div>
+        <label for="userName">Username*</label>
+        <br>
+        <input type="text" class="input" name="userName"  [(ngModel)]="signinFormData.username" 
+        required placeholder="Enter your username">
+        </div>
+        <br>
+        <div>
+        <label for="password">Password*</label>
+        <br>
+        <input type="password" class="input" name="password" [(ngModel)]="signinFormData.password" 
+        required placeholder="Enter your password">
+        </div>
+      </div>
+      <br>
+      <div class="form-footer">
+        <button type="button" (click)="onSubmitSignin()" class="button" [disabled]="!sign.valid">Sign In</button>
+        <button type="button"  (click)="signIn()" class="button">Close </button>
+    </div>
+    </div>
+</form>
+  
+
